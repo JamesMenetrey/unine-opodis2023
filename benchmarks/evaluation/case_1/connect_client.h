@@ -1,0 +1,1 @@
+int connect_client(char *client_id);

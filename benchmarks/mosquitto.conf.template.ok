@@ -1,0 +1,42 @@
+# hostname listener for secured mqtt connections (with client cert)
+listener 8883 {{HOST}}
+certfile certs/server.crt
+keyfile certs/server.key
+require_certificate true
+allow_anonymous false
+use_subject_as_username true
+cafile certs/ca.crt
+
+# localhost listener for secured mqtt connections (with client cert)
+listener 8883
+certfile certs/server_lo.crt
+keyfile certs/server_lo.key
+require_certificate true
+allow_anonymous false
+use_subject_as_username true
+cafile certs/ca.crt
+
+# hostname listener for secured mqtt connections (no client cert)  
+listener 8884 {{HOST}}
+certfile certs/server.crt
+keyfile certs/server.key
+require_certificate false
+allow_anonymous true
+cafile certs/ca.crt
+
+# localhost listener for secured mqtt connections (no client cert)  
+listener 8884
+certfile certs/server_lo.crt
+keyfile certs/server_lo.key
+require_certificate false
+allow_anonymous true
+cafile certs/ca.crt
+
+# listener for unsecured mqtt connections (no TLS)
+listener 1888
+allow_anonymous true
+require_certificate false
+
+# publish status messages every 15 secoonds
+sys_interval 5
+log_timestamp_format %H:%M:%S

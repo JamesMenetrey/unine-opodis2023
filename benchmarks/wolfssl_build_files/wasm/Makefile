@@ -1,0 +1,23 @@
+include ../common.mk
+
+WASI_SDK_PATH ?= /opt/wasi-sdk
+
+Wolfssl_C_Extra_Flags += -DWOLFSSL_WASM
+
+.PHONY: all
+all:
+	# Preprocess, compile and assemble WolfSSL in Wasm
+	$(WASI_SDK_PATH)/bin/clang \
+		-c \
+		--target=wasm32-wasi \
+		--sysroot=$(WASI_SDK_PATH)/share/wasi-sysroot/ \
+		$(Wolfssl_C_Extra_Flags) \
+		$(Wolfssl_Include_Paths) \
+		$(Wolfssl_C_Files)
+
+	# Archive all the assembled files to create a static library in Wasm
+	$(WASI_SDK_PATH)/bin/llvm-ar rcs libwolfssl.a *.o
+
+.PHONY: clean
+clean:
+	rm *.o *.a

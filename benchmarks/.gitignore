@@ -1,0 +1,16 @@
+certs/
+iwasm
+*.o
+random*/
+mosquitto-native
+mosquitto-wasm.aot
+mosquitto-sgx.aot
+mosquitto-sgx-ra.aot
+evaluation/case_1/case_1
+evaluation/case_2/case_2
+evaluation/case_2/message_rate_scaling
+evaluation/case_2/publisher_scaling
+evaluation/case_2/subscriber_scaling
+connect_client
+publisher
+subscriber

@@ -1,0 +1,26 @@
+# hostname listener for secured mqtt connections (with client cert)
+listener 8883 {{HOST}}
+certfile certs/server.crt
+keyfile certs/server.key
+require_certificate true
+allow_anonymous false
+use_subject_as_username true
+cafile certs/ca.crt
+
+# hostname listener for secured mqtt connections (no client cert) but with expired cert  
+listener 8884
+certfile certs/server_expired.crt
+keyfile certs/server_expired.key
+require_certificate false
+allow_anonymous true
+cafile certs/ca.crt
+
+# hostname listener for secured mqtt connections (no client cert) with invalid CN  
+listener 8885 {{HOST}}
+certfile certs/server_invalid.crt
+keyfile certs/server_invalid.key
+require_certificate false
+allow_anonymous true
+cafile certs/ca.crt
+
+log_timestamp_format %H:%M:%S

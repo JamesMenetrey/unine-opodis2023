@@ -1,0 +1,14 @@
+# hostname listener for secured mqtt connections (with client cert)
+listener 8883 {{HOST}}
+certfile certs/server.crt
+keyfile certs/server.key
+require_certificate true
+allow_anonymous false
+use_subject_as_username true
+cafile certs/ca.crt
+
+# publish status messages every 15 secoonds
+sys_interval 5
+log_timestamp_format %H:%M:%S
+connection_messages false
+log_type error
