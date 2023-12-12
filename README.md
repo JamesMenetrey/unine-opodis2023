@@ -2,7 +2,7 @@
 
 DOI: 10.4230/LIPIcs.OPODIS.2023.23 (submission in progress)
 
-arXiv (submission in progress)
+Read the paper on: [arXiv](https://arxiv.org/abs/2312.00702)
 
 The paper version is published in the proceedings of the 27th Conference on Principles of Distributed Systems (OPODIS'23), Tokyo, Japan, December 2023.  
 Website of the conference: [OPODIS'23](https://xdefago.github.io/opodis23/)
